@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.example.sunnypariharflash.sharelocation.Profile">
-
-</android.support.constraint.ConstraintLayout>
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_margin="30sp"
+    android:theme="@style/AlertDialog.AppCompat.Light"
+    android:layout_height="wrap_content"
+    android:layout_weight="30"
+    android:id="@+id/image"
+   android:background="@mipmap/ic_launcher"/>
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_weight="2"
+    android:layout_height="wrap_content">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="NAME:"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:id="@+id/nameedit"/>
+</android.support.design.widget.TextInputLayout><android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_weight="2"
+    android:layout_height="wrap_content">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:hint="Email:"
+        android:id="@+id/Emailedit"/>
+</android.support.design.widget.TextInputLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/update"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="end"
+        android:layout_margin="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"></LinearLayout>
+</LinearLayout>
