@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "175398522372",
+    "firebase_url": "https://sharelocation-1520092168783.firebaseio.com",
+    "project_id": "sharelocation-1520092168783",
+    "storage_bucket": "sharelocation-1520092168783.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175398522372:android:e676742c2b081090",
+        "android_client_info": {
+          "package_name": "com.example.sunnypariharflash.sharelocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175398522372-gcb857qdbbjnrjdbk75n5jt0sbra1bk0.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "175398522372-0pdhfdusv4p2vo4oval91hf1bdb3dsoj.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "175398522372-bblil5pufptas36bdj0g55ltd2s74rjl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sunnypariharflash.sharelocation",
+            "certificate_hash": "657d47109c629d988a5f5eda0e91a2e63f350acc"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYCBRp9ZnR2TaUGZ-RaGZDxA6ko-Fa92E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175398522372-gcb857qdbbjnrjdbk75n5jt0sbra1bk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
