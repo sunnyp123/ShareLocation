@@ -105,7 +105,7 @@ mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                 dialog.dismiss();
             }
         });
-/*btn2.setOnClickListener(new View.OnClickListener() {
+btn2.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             String code = edt2.getText().toString();
@@ -113,18 +113,18 @@ mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                 edt2.setError("Invalid field");
             }
 
-            verifyPhoneNumberWithCode(mVerificationId,code);
-
+          else{
+                verifyPhoneNumberWithCode(mVerificationId,code);
+                startActivity(new Intent(MainActivity.this,Profile.class));
+            }
         }
-    });*/
+    });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (auth.getCurrentUser().getPhoneNumber()!=null){
-            startActivity(new Intent(MainActivity.this,MapsActivity.class));
-        }
+
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {

@@ -27,6 +27,8 @@ DatabaseReference reference;
         edt2 = findViewById(R.id.Emailedit);
         auth = FirebaseAuth.getInstance();
         reference = FirebaseDatabase.getInstance().getReference().child("Users");
-
+        String data1 = edt1.getText().toString();
+        String data2 = edt2.getText().toString();
+        reference.push().child(auth.getCurrentUser().getPhoneNumber()).setValue(new ProfileData(data1,data2));
     }
 }

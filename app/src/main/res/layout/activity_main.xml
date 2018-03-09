@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="SEnd COde &amp; Next"
+        android:text="Save &amp; Next"
         android:theme="@style/AlertDialog.AppCompat.Light"
         android:id="@+id/btnverfiy"
         android:background="@color/colorPrimary"
