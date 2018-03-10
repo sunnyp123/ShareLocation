@@ -1,5 +1,8 @@
 package com.example.sunnypariharflash.sharelocation;
 
+import android.annotation.SuppressLint;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,15 +29,21 @@ public class Drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 DatabaseReference reference;
 FirebaseAuth auth;
+TextView text12View,text12iew2;
 String name,email;
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+       android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+       ft.replace(R.id.container,new BlankFragment());
+       ft.commit();
         auth = FirebaseAuth.getInstance();
-        reference = FirebaseDatabase.getInstance().getReference();
+
+        reference = FirebaseDatabase.getInstance().getReference().child(auth.getCurrentUser().getUid());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -43,14 +53,19 @@ String name,email;
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+View header = navigationView.getHeaderView(0);
+text12View = header.findViewById(R.id.textststs);
+text12iew2 = header.findViewById(R.id.textViewforEmail);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    ProfileData detail = dataSnapshot.getValue(ProfileData.class);
+                    ProfileData detail = postSnapshot.getValue(ProfileData.class);
 
-                    String name = detail.getName();
-                    String email = detail.getEmail();
+                  name= detail.getName();
+                     email = detail.getEmail();
+                     text12View.setText(name);
+                     text12iew2.setText(email);
                     Toast.makeText(Drawer.this, name + email, Toast.LENGTH_SHORT).show();
                 }
 
@@ -59,8 +74,7 @@ String name,email;
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
-    }
+        });    }
 
     @Override
     public void onBackPressed() {
@@ -69,6 +83,7 @@ String name,email;
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+        finish();
         }
     }
 
@@ -94,6 +109,7 @@ String name,email;
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint("ResourceType")
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -101,9 +117,14 @@ String name,email;
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.container,new BlankFragment());
+            ft.commit();
 
+        } else if (id == R.id.nav_gallery) {
+  android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+  ft.replace(R.id.container,new BlankFragment2());
+  ft.commit();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
