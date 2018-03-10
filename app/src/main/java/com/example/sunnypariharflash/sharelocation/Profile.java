@@ -1,10 +1,13 @@
 package com.example.sunnypariharflash.sharelocation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,9 +29,17 @@ DatabaseReference reference;
         edt1 = findViewById(R.id.nameedit);
         edt2 = findViewById(R.id.Emailedit);
         auth = FirebaseAuth.getInstance();
-        reference = FirebaseDatabase.getInstance().getReference().child("Users");
-        String data1 = edt1.getText().toString();
-        String data2 = edt2.getText().toString();
-        reference.push().child(auth.getCurrentUser().getPhoneNumber()).setValue(new ProfileData(data1,data2));
+        reference = FirebaseDatabase.getInstance().getReference();
+        final String data1 = edt1.getText().toString();
+        final String data2 = edt2.getText().toString();
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reference.push().setValue(new ProfileData(data1,data2));
+                startActivity(new Intent(Profile.this,Drawer.class));
+                Toast.makeText(Profile.this, "Your Data has been entered", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

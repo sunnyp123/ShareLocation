@@ -124,6 +124,9 @@ btn2.setOnClickListener(new View.OnClickListener() {
     @Override
     protected void onStart() {
         super.onStart();
+        if(auth.getCurrentUser()!=null){
+            startActivity(new Intent(MainActivity.this,Drawer.class));
+        }
 
     }
 
